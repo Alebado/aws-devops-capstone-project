@@ -13,5 +13,6 @@
       run: docker build ./api -t alebado/devops-qr-code-api:latest .
     - name: Push Docker image
       run: |
+        docker login -u alebado -p ${{ secrets.DOCKER_HUB_TOKEN }}
         docker push alebado/devops-qr-code-api:latest
         echo "Docker image pushed to Docker Hub"
