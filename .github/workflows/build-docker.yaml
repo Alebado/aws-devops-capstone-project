@@ -10,7 +10,7 @@
     - name: Checkout
       uses: actions/checkout@v4
     - name: build image
-      run: docker build ./api -t alebado/devops-qr-code-api:latest .
+      run: docker build ./api -t alebado/devops-qr-code-api:latest
     - name: Push Docker image
       run: |
         docker login -u alebado -p ${{ secrets.DOCKER_HUB_TOKEN }}
