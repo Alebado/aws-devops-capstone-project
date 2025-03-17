@@ -1,0 +1,16 @@
+FROM python:3.13.2
+
+WORKDIR /usr/src/app
+
+# Copy and install dependencies
+COPY requirements.txt ./
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+
+# Copy all project files
+COPY . .
+
+# Expose port (optional but recommended for documentation)
+EXPOSE 80
+
+# Run the application
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
